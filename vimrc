@@ -22,6 +22,7 @@
 
  Plugin 'altercation/vim-colors-solarized'
 
+ Plugin 'mhinz/vim-startify'
  call vundle#end()
  filetype plugin indent on
 
@@ -34,6 +35,9 @@
 
  """"""""" Airline (always show statusline)
  set laststatus=2
+
+ """"""""" Startify vim screen
+ let g:startify_custom_indices = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
  """"""""" Conque Shell shortcut
  map <C-j> <C-w>j
