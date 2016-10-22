@@ -23,9 +23,16 @@
  Plugin 'altercation/vim-colors-solarized'
 
  Plugin 'mhinz/vim-startify'
+
+ Plugin 'myusuf3/numbers.vim'
+ 
+ Plugin 'tpope/vim-fugitive'
  call vundle#end()
  filetype plugin indent on
 
+ """"""""" Numbers plugin
+ nnoremap <F1> :NumbersToggle<CR>
+ 
  """"""""" NERDTree
  "Auto NERDtree when vim starts up
  " autocmd vimenter * NERDTree
