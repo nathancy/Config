@@ -7,3 +7,4 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[00;35m\]\u\[\033[00;36m\]@\[\033[0
 
 alias meteor="meteor.bat"
 alias jekyll='C:/\tools/\ruby23/\bin/\jekyll'
+alias bundle='C:/\tools/\ruby23/\bin/\bundle'
