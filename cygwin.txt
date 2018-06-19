@@ -1,0 +1,10 @@
+gcc
+g++
+git
+less
+make
+lynx
+vim
+wget
+python
+pip
