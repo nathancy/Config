@@ -6,6 +6,8 @@
  
  Plugin 'VundleVim/Vundle.vim'
 
+ Plugin 'terryma/vim-multiple-cursors'
+
  Plugin 'scrooloose/nerdtree'
 
  Plugin 'bling/vim-airline'
@@ -52,7 +54,7 @@
  map <C-h> <C-w>h
  map <C-l> <C-w>l
 
- """""""" Conque shell magic resize
+ """"""""" Conque shell magic resize
  :au WinEnter * :setlocal number
  :au WinEnter * :setlocal norelativenumber
  :au WinEnter * :wincmd =
@@ -83,6 +85,22 @@
 
  """"""""" Supertab
  let g:SuperTabDefaultCompletionType = "<c-n>"
+
+ """"""""" Vim Multiple Cursors 
+ let g:multi_cursor_use_default_mapping=0
+
+ let g:multi_cursor_start_word_key      = '<C-n>'
+ let g:multi_cursor_select_all_word_key = '<C-A>'
+ let g:multi_cursor_start_key           = 'g<C-n>'
+ let g:multi_cursor_select_all_key      = 'g<C-A>'
+ let g:multi_cursor_next_key            = '<C-n>'
+ let g:multi_cursor_prev_key            = '<C-p>'
+ let g:multi_cursor_skip_key            = '<C-x>'
+ let g:multi_cursor_quit_key            = '<Esc>'
+
+ """"""""" Jump to start or end of line in insert mode 
+ inoremap <S-H> <Home>
+ inoremap <S-L> <End>
 
  """""""""""""""
  "General settings
