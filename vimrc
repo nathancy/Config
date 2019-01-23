@@ -8,6 +8,8 @@
 
  Plugin 'terryma/vim-multiple-cursors'
 
+ Plugin 'tpope/vim-commentary'
+
  Plugin 'scrooloose/nerdtree'
 
  Plugin 'bling/vim-airline'
