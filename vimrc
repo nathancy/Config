@@ -114,7 +114,6 @@ set autoindent
 set smartindent
 set tabstop=4
 set shiftwidth=4
-set textwidth=79
 set expandtab
 set smarttab
 set fileformat=unix
@@ -129,7 +128,7 @@ set pastetoggle=<F10>
 """""""" Copy paste in insert mode
 inoremap <C-v> <F10><C-r>+<F10>
 
-"""""""" Opens new window on right and on bottom
+"""""""" Opens new window on right 
 set splitright
 
 """""""" Minimum windows
