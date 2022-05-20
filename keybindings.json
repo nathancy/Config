@@ -1,0 +1,56 @@
+// Place your key bindings in this file to override the defaults
+[
+  // Toggle open/close terminal
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus"
+  },
+
+  // Vim move around with "CTRL + hjkl"
+  {
+      "key": "ctrl+h",
+      "command": "workbench.action.navigateLeft"
+  },
+  {
+      "key": "ctrl+l",
+      "command": "workbench.action.navigateRight"
+  },
+  /*
+  {
+      "key": "ctrl+k",
+      "command": "workbench.action.navigateUp"
+  },
+  // This interferes with toggle terminal
+  {
+      "key": "ctrl+j",
+      "command": "workbench.action.navigateDown"
+  }
+  */
+
+  /*  Try to emulate https://github.com/terryma/vim-multiple-cursors
+
+  By default VSCode has this functionality with CTRL + D (single)
+  but the old mapping is CTRL + N (single). Need to disable both VSCode's 
+  CTRL + N and Vim's default setting.
+  */
+  {
+    "key": "ctrl+n",
+    "command": "-workbench.action.files.newUntitledFile"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-extension.vim_ctrl+n",
+    "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+  "key": "ctrl+x",
+  "command": "editor.action.moveSelectionToNextFindMatch",
+  "when": "editorFocus"
+  }
+]

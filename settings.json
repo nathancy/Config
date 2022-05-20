@@ -1,0 +1,87 @@
+{
+    // Base all custom changes off 'Solarized Dark' theme
+    "workbench.colorTheme": "Solarized Dark",
+
+    // Match old Cygwin color and search highlight color
+    "workbench.colorCustomizations": {
+        "editor.background": "#002b36",
+        "editor.foreground": "#93a1a1",
+        "editorCursor.foreground": "#7058f3",
+        "editor.findMatchHighlightBackground": "#59605e",
+        "editor.selectionHighlightBackground": "#59605e",
+        "editorLink.activeForeground": "#59605e",
+        "searchEditor.findMatchBackground": "#59605e"
+    },
+    
+    // Relative line numbers
+    "editor.lineNumbers": "relative",
+
+    // Bind < and > in visual mode to indent/outdent lines (repeatable)
+    "vim.visualModeKeyBindings": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+    ],
+
+    // Turn off annoying highlighting
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+
+    // Highlight all searches from vim results
+    "vim.hlsearch": true,
+
+    // Custom syntax highlighting
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+        {
+            "scope": "storage, storage.type, keyword.control.flow.python",
+            "settings": {
+                "foreground": "#ffc102"
+            },
+        },
+        {
+            "scope": "entity.name.type.class, comment, constant.language, entity.name.function.member, entity.name.function",
+            "settings": {
+                "foreground": "#47cfc5"
+            },
+        },
+        {
+            "scope": "constant.numeric, string, constant.other, constant.character",
+            "settings": {
+                "foreground": "#a2a5d9"
+            },
+        },
+        {
+            "scope": "keyword.operator, variable.other.property, variable.other.readwrite",
+            "settings": {
+                "foreground": "#93a1a1"
+            },
+        },
+        {
+            "scope": "entity.name.namespace",
+            "settings": {
+                "foreground": "#d4bbb6"
+            },
+        },
+        {
+            "scope": "keyword",
+            "settings": {
+                "foreground": "#26b1c9"
+            },
+        }
+    ]
+},
+}
