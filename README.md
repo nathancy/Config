@@ -52,3 +52,19 @@ C:\Users\[user]\Documents
 ```
 
 Make a folder called `WindowsPowerShell` and insert the `Microsoft.PowerShell_profile.ps1` file
+
+## VSCode file modified even if no change
+
+If you run `git diff` and get something like
+
+```
+old mode 100725
+new mode 100614
+```
+
+Fix is
+
+```
+git config --unset core.filemode
+git config --global core.filemode false
+```
