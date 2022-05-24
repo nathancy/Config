@@ -84,4 +84,12 @@
             }
         ]
     },
+
+    // Default path of integrated terminal
+    "terminal.integrated.cwd": "C:\\cygwin64\\home\\Nathan",
+
+    "security.workspace.trust.untrustedFiles": "open",
+
+    // Disable gitlens extention most recent commit line information
+    "gitlens.currentLine.enabled": false
 }
