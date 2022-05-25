@@ -15,40 +15,88 @@
     "key": "ctrl+l",
     "command": "workbench.action.navigateRight"
   },
-  /*
-  {
-      "key": "ctrl+k",
-      "command": "workbench.action.navigateUp"
-  },
-  // This interferes with toggle terminal
-  {
-      "key": "ctrl+j",
-      "command": "workbench.action.navigateDown"
-  }
-  */
+
   /*  Try to emulate https://github.com/terryma/vim-multiple-cursors
 
   By default VSCode multi-cursor functionality with CTRL + D (single)
   but the old mapping was CTRL + N (single). Need to disable both VSCode's 
   CTRL + N (create new file) and Vim's default setting.
   */
+
+  // Remove default VSCode open file
   {
     "key": "ctrl+n",
     "command": "-workbench.action.files.newUntitledFile"
   },
+
+  // Remove default VIM ctrl+n
   {
     "key": "ctrl+n",
     "command": "-extension.vim_ctrl+n",
     "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
   },
+
+  // Use built in VSCode find matcher
   {
     "key": "ctrl+n",
     "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "editorFocus"
+    "when": "vim.active && editorFocus && vim.mode == 'Visual' || vim.mode == 'Normal' || vim.mode == 'VisualBlock' && !inDebugRepl"
   },
+  
+  // Skip current match
   {
     "key": "ctrl+x",
     "command": "editor.action.moveSelectionToNextFindMatch",
-    "when": "editorFocus"
-  }
+    "when": "vim.active && editorFocus && !inDebugRepl"
+  },
+
+  // Go back to previous match
+  {
+    "key": "ctrl+o",
+    "command": "editor.action.moveSelectionToPreviousFindMatch",
+    "when": "vim.active && editorFocus && !inDebugRepl"
+  },
+
+  // Disable default vim ctrl+a
+  {
+    "key": "ctrl+a",
+    "command": "-extension.vim_ctrl+a",
+    "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
+  },
+
+  // All matches
+  {
+    "key": "ctrl+a",
+    "command": "editor.action.selectHighlights",
+    "when": "vim.active && editorFocus && !inDebugRepl"
+  },
+
+  // When using visual mode for specific pattern cursor end of visual. Press shift + a
+  {
+    "key": "shift+a",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.focusPreviousGroup",
+        "workbench.action.focusNextGroup",
+        "extension.vim_escape",
+        "extension.vim_insert",
+      ]
+    },
+    "when": "vim.active && editorFocus && vim.mode == 'VisualBlock' && !inDebugRepl"
+  },
+
+  // Custom visual mode specific pattern clearing all visual. Press c then v to activate
+  // Need to press v before shift + i or c
+  {
+    "key": "c",
+    "command": "extension.multiCommand.execute",
+    "args": {
+      "sequence": [
+        "workbench.action.focusPreviousGroup",
+        "workbench.action.focusNextGroup",
+      ]
+    },
+    "when": "vim.active && editorFocus && vim.mode == 'VisualBlock' && !inDebugRepl"
+  },
 ]

@@ -7,14 +7,14 @@
         "editor.background": "#002b36",
         "editor.foreground": "#93a1a1",
         "editorCursor.foreground": "#7058f3",
+        "editorCursor.background": "#000000",
         "editor.findMatchHighlightBackground": "#59605e",
         "editor.selectionHighlightBackground": "#59605e",
         "editorLink.activeForeground": "#59605e",
-        "searchEditor.findMatchBackground": "#59605e"
+        "searchEditor.findMatchBackground": "#59605e",
+        "tab.activeBackground": "#28699b",
+        "tab.border": "#b4c9cd"
     },
-
-    // Relative line numbers
-    "editor.lineNumbers": "relative",
 
     // Bind < and > in visual mode to indent/outdent lines (repeatable)
     "vim.visualModeKeyBindings": [
@@ -36,18 +36,29 @@
         },
     ],
 
+    // Close active editor tab (default VSCode key)
+    "vim.handleKeys": {
+        "<C-w>": false
+    },
+
+    // Highlight all searches from vim results
+    "vim.hlsearch": true,
+
     // Turn off annoying highlighting
     "editor.occurrencesHighlight": false,
     "editor.selectionHighlight": false,
 
-    // Highlight all searches from vim results
-    "vim.hlsearch": true,
+    // Relative line numbers
+    "editor.lineNumbers": "relative",
+
+    // Disable minimap
+    "editor.minimap.enabled": false,
 
     // Custom syntax highlighting
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
-                "scope": "storage, storage.type, keyword.control.flow.python",
+                "scope": "entity.name.class, storage, storage.type, keyword.control.flow.python",
                 "settings": {
                     "foreground": "#ffc102"
                 },
@@ -91,5 +102,6 @@
     "security.workspace.trust.untrustedFiles": "open",
 
     // Disable gitlens extention most recent commit line information
-    "gitlens.currentLine.enabled": false
+    "gitlens.currentLine.enabled": false,
+    "extensions.ignoreRecommendations": true,
 }

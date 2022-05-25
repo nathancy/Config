@@ -36,7 +36,7 @@ Solarized Dark Vim
 Vim
 Git History
 GitLens
-
+vscode-proto3
 autoDocstring
 IntelliCode
 ```
