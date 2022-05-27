@@ -6,6 +6,12 @@
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "!terminalFocus"
   },
+  // Override default VSCode find. Allow normal VIM movement in integrated terminal
+  {
+    "key": "ctrl+f",
+    "command": "extension.vim_ctrl+f",
+    "when": "terminalFocus"
+  },
   // Vim move around with "CTRL + hjkl"
   {
     "key": "ctrl+h",
