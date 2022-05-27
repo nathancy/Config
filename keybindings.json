@@ -16,62 +16,69 @@
     "command": "workbench.action.navigateRight"
   },
 
-  /*  Try to emulate https://github.com/terryma/vim-multiple-cursors
+  /*  VSCode attempt to emulate https://github.com/terryma/vim-multiple-cursors */
 
-  By default VSCode multi-cursor functionality with CTRL + D (single)
-  but the old mapping was CTRL + N (single). Need to disable both VSCode's 
-  CTRL + N (create new file) and Vim's default setting.
-  */
-
-  // Remove default VSCode open file
-  {
-    "key": "ctrl+n",
-    "command": "-workbench.action.files.newUntitledFile"
-  },
-
-  // Remove default VIM ctrl+n
-  {
-    "key": "ctrl+n",
-    "command": "-extension.vim_ctrl+n",
-    "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
-  },
-
-  // Use built in VSCode find matcher
+  // Use built in VSCode pattern matcher for entire word search (ctrl + n)
   {
     "key": "ctrl+n",
     "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "vim.active && editorFocus && vim.mode == 'Visual' || vim.mode == 'Normal' || vim.mode == 'VisualBlock' && !inDebugRepl"
+    "when": "vim.active && editorFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualBlock' && !inDebugRepl"
   },
   
-  // Skip current match
+  // Skip current match (ctrl + x)
   {
     "key": "ctrl+x",
     "command": "editor.action.moveSelectionToNextFindMatch",
-    "when": "vim.active && editorFocus && !inDebugRepl"
+    "when": "vim.active && editorFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualBlock' && !inDebugRepl"
   },
 
-  // Go back to previous match
+  // Go back to previous match (ctrl + p)
   {
-    "key": "ctrl+o",
+    "key": "ctrl+p",
     "command": "editor.action.moveSelectionToPreviousFindMatch",
-    "when": "vim.active && editorFocus && !inDebugRepl"
+    "when": "vim.active && editorFocus && vim.mode == 'Visual' || vim.mode == 'VisualBlock' && !inDebugRepl"
   },
 
-  // Disable default vim ctrl+a
-  {
-    "key": "ctrl+a",
-    "command": "-extension.vim_ctrl+a",
-    "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
-  },
-
-  // All matches
+  // Select all matches (ctrl + a). This is effectively the same as (ctrl + shift + l)
   {
     "key": "ctrl+a",
     "command": "editor.action.selectHighlights",
-    "when": "vim.active && editorFocus && !inDebugRepl"
+    "when": "vim.active && editorFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualBlock' && !inDebugRepl"
   },
 
-  // When using visual mode for specific pattern cursor end of visual. Press shift + a
+  /* Add MULTIPLE CURSORS to ALL PATTERN SELECTIONS
+     This one is for the "A" (shift + a) command in VIM to add a cursor to the end of a pattern selection 
+  
+     Visual block mode pattern searching for individual section already part of a word. After searching
+     for sections of a pattern in a word, method applies cursors to ALL instances instead of just the first one.
+    
+     REQUIRES "multi-command" plugin:
+     https://marketplace.visualstudio.com/items?itemName=ryuta46.multi-command
+  
+     Example:
+
+     Word: pirateShipsAreCool
+     Pattern: pirateShips
+
+     You only want to search for all patterns matching "pirateShips" using visual block.
+     Operation: 1. ctrl + v to highlight desired pattern
+                2. Keep selecting patterns with ctrl + n
+                3. When done, press shift + a
+     It will find all matches for that specific pattern eg. "pirateShips"
+
+     NOTE: THIS ONE IS EXPERIMENTAL and exploits the bug when adding parts of a pattern where VIM 
+     thinks you are only in "VISUAL" mode instead of both "VISUAL" and "MULTI CURSOR" mode.
+     For some reason, when switching the window and going back to the original window, it adds cursors to
+     all matched patterns. IF YOU DON'T SWITCH WINDOWS, any normal VIM action will only apply the change 
+     to the FIRST cursor so we must switch context to apply cursors to ALL PATTERN MATCHES.
+     
+     This implementation REQUIRES you to have a vertical split screen open otherwise it will not work.
+     You could replace "focusPreviousGroup" and "focusNextGroup" with any window change action such as 
+     opening/closing the sidebar as well.
+
+     You can experiment with other editor/window management commands here to get the same effect:
+     https://code.visualstudio.com/docs/getstarted/keybindings#_editorwindow-management
+  */
   {
     "key": "shift+a",
     "command": "extension.multiCommand.execute",
@@ -86,8 +93,25 @@
     "when": "vim.active && editorFocus && vim.mode == 'VisualBlock' && !inDebugRepl"
   },
 
-  // Custom visual mode specific pattern clearing all visual. Press c then v to activate
-  // Need to press v before shift + i or c
+  /* This handles all other insert mode commands in VIM such as (x, I, c)
+
+     Operation: 1. "c"
+                2. "v"
+                3. <standard VIM command>
+
+     Example to use "c" command in VIM to clear current pattern selection and enter insert mode
+     USAGE: c + v + c
+      
+     Requires multiple keypresses since according to the VIM extension shortcut docs, there is no command to enter into 
+     "VISUAL" or "MULTI CURSOR" mode. :( So after selecting patterns, you have to do this sequence
+     "Visual" -> "Normal" -> <standard VIM command>
+
+     NOTE: THIS IS ONLY for when you select partial matches in a word. If you select full words 
+     using (ctrl + n) or (ctrl + a) WITHOUT using visual block, then normal VIM commands 
+     to insert cursors (x, A, I, c) will work normally. 
+
+     Same limitations as the "A" (shift + a) command up there: requires a vertical split window open
+  */
   {
     "key": "c",
     "command": "extension.multiCommand.execute",
