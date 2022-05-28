@@ -2,18 +2,103 @@
     // Base all custom changes off 'Solarized Dark' theme
     "workbench.colorTheme": "Solarized Dark",
 
-    // Match old Cygwin color and search highlight color
+    // Editor colors
     "workbench.colorCustomizations": {
         "editor.background": "#002b36",
         "editor.foreground": "#93a1a1",
         "editorCursor.foreground": "#7058f3",
         "editorCursor.background": "#000000",
+        "editor.findMatchBackground": "#59605e",
         "editor.findMatchHighlightBackground": "#59605e",
         "editor.selectionHighlightBackground": "#59605e",
+        "editor.selectionBackground": "#59605e",
+        "editor.rangeHighlightBackground": "#ffffff",
+        "editorBracketHighlight.foreground2": "#28aba0",
+        "editorBracketHighlight.foreground3": "#5d7ac9",
+        "editorOverviewRuler.findMatchForeground": "#949948",
         "editorLink.activeForeground": "#59605e",
         "searchEditor.findMatchBackground": "#59605e",
-        "tab.activeBackground": "#28699b",
-        "tab.border": "#b4c9cd"
+        "tab.activeForeground": "#f7ecec",
+        "tab.activeBackground": "#246172",
+        "tab.border": "#003847",
+        "tab.activeBorder": "#48bda6",
+        "tab.unfocusedInactiveForeground": "#93a1a1",
+
+        // Git colors
+        "gitDecoration.modifiedResourceForeground": "#13f5b1",
+        "gitDecoration.untrackedResourceForeground": "#f7aeae",
+        "diffEditor.removedLineBackground": "#883d3d",
+
+        // Warning + error color
+        "list.errorForeground": "#ff6666",
+        "list.warningForeground": "#13f5b1"
+    },
+
+    // Turn off annoying highlighting
+    "editor.occurrencesHighlight": false,
+    "editor.selectionHighlight": false,
+
+    // Relative line numbers
+    "editor.lineNumbers": "relative",
+
+    // Disable minimap
+    "editor.minimap.enabled": false,
+
+    // Custom syntax highlighting
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "keyword.operator.logical, entity.name.class, storage, storage.type, keyword.control.flow.python",
+                "settings": {
+                    "foreground": "#e4ae0f"
+                }
+            },
+            {
+                "scope": "entity.name.type.class, comment, constant.language, entity.name.function.member, entity.name.function",
+                "settings": {
+                    "foreground": "#47cfc5"
+                }
+            },
+            {
+                "scope": "constant.numeric, string, constant.other, constant.character",
+                "settings": {
+                    "foreground": "#a2a5d9"
+                }
+            },
+            {
+                "scope": "variable.other.property, variable.other.readwrite",
+                "settings": {
+                    "foreground": "#93a1a1"
+                }
+            },
+            // Packages
+            {
+                "scope": "entity.name.namespace",
+                "settings": {
+                    "foreground": "#D4D4D4"
+                    // "foreground": "#d4bbb6"
+                }
+            },
+            {
+                "scope": "support.type",
+                "settings": {
+                    "foreground": "#7FB785"
+                }
+            },
+            {
+                "scope": "variable.language",
+                "settings": {
+                    "foreground": "#8dc8e5"
+                }
+            },
+            {
+                "scope": "keyword",
+                "settings": {
+                    "foreground": "#26b1c9"
+                    // "foreground": "#4EC9B0"
+                }
+            }
+        ]
     },
 
     // Bind < and > in visual mode to indent/outdent lines (repeatable)
@@ -33,7 +118,7 @@
             "commands": [
                 "editor.action.outdentLines"
             ]
-        },
+        }
     ],
 
     // Close active editor tab (default VSCode key)
@@ -44,64 +129,11 @@
     // Highlight all searches from vim results
     "vim.hlsearch": true,
 
-    // Turn off annoying highlighting
-    "editor.occurrencesHighlight": false,
-    "editor.selectionHighlight": false,
-
-    // Relative line numbers
-    "editor.lineNumbers": "relative",
-
-    // Disable minimap
-    "editor.minimap.enabled": false,
-
-    // Custom syntax highlighting
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": "entity.name.class, storage, storage.type, keyword.control.flow.python",
-                "settings": {
-                    "foreground": "#ffc102"
-                },
-            },
-            {
-                "scope": "entity.name.type.class, comment, constant.language, entity.name.function.member, entity.name.function",
-                "settings": {
-                    "foreground": "#47cfc5"
-                },
-            },
-            {
-                "scope": "constant.numeric, string, constant.other, constant.character",
-                "settings": {
-                    "foreground": "#a2a5d9"
-                },
-            },
-            {
-                "scope": "keyword.operator, variable.other.property, variable.other.readwrite",
-                "settings": {
-                    "foreground": "#93a1a1"
-                },
-            },
-            {
-                "scope": "entity.name.namespace",
-                "settings": {
-                    "foreground": "#d4bbb6"
-                },
-            },
-            {
-                "scope": "keyword",
-                "settings": {
-                    "foreground": "#26b1c9"
-                },
-            }
-        ]
-    },
-
     // Default path of integrated terminal
     "terminal.integrated.cwd": "C:\\cygwin64\\home\\Nathan",
-
     "security.workspace.trust.untrustedFiles": "open",
 
     // Disable gitlens extention most recent commit line information
     "gitlens.currentLine.enabled": false,
-    "extensions.ignoreRecommendations": true,
+    "extensions.ignoreRecommendations": true
 }

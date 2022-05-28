@@ -6,6 +6,12 @@
     "command": "workbench.action.terminal.toggleTerminal",
     "when": "!terminalFocus"
   },
+  // Automatic maximize a split editor
+  {
+    "key": "space",
+    "command": "workbench.action.toggleEditorWidths",
+    "when": "vim.active && editorFocus && vim.mode == 'Normal' && !inDebugRepl"
+  },
   // Override default VSCode find. Allow normal VIM movement in integrated terminal
   {
     "key": "ctrl+f",
@@ -93,7 +99,7 @@
         "workbench.action.focusPreviousGroup",
         "workbench.action.focusNextGroup",
         "extension.vim_escape",
-        "extension.vim_insert",
+        "extension.vim_insert"
       ]
     },
     "when": "vim.active && editorFocus && vim.mode == 'VisualBlock' && !inDebugRepl"
@@ -124,9 +130,9 @@
     "args": {
       "sequence": [
         "workbench.action.focusPreviousGroup",
-        "workbench.action.focusNextGroup",
+        "workbench.action.focusNextGroup"
       ]
     },
     "when": "vim.active && editorFocus && vim.mode == 'VisualBlock' && !inDebugRepl"
-  },
+  }
 ]
