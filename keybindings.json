@@ -11,6 +11,12 @@
     "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal"
   },
+  // Remove running code when shift + enter
+  {
+    "key": "shift+enter",
+    "command": "-python.execSelectionInTerminal",
+    "when": "editorTextFocus && !findInputFocussed && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
   // Automatic maximize a split editor
   {
     "key": "space",
@@ -139,5 +145,5 @@
       ]
     },
     "when": "vim.active && editorFocus && vim.mode == 'VisualBlock' && !inDebugRepl"
-  }
+  },
 ]
