@@ -8,8 +8,7 @@
         "editor.foreground": "#93a1a1",
         "editorCursor.foreground": "#7058f3",
         "editorCursor.background": "#000000",
-        "editor.findMatchBackground": "#d8e58b",
-        "editor.findMatchHighlightBackground": "#d8e58b",
+        "editor.findMatchHighlightBackground": "#6fe9df50", // Other search matches
         "editor.selectionHighlightBackground": "#59605e",
         "editor.selectionBackground": "#59605e",
         "editor.rangeHighlightBackground": "#ffffff",
@@ -31,7 +30,7 @@
 
         // Warning + error color
         "list.errorForeground": "#ff6666",
-        "list.warningForeground": "#13f5b1",
+        "list.warningForeground": "#13f5b1"
     },
 
     // Turn off annoying highlighting
