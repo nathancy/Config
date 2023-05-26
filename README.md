@@ -70,6 +70,9 @@ git config --global core.filemode false
 ```
 
 # Terminal Customization
+
+[Custom terminal with Oh My Posh.](https://learn.microsoft.com/en-us/windows/terminal/tutorials/custom-prompt-setup) Then right-click the font-file in the folder to install. [Here for themes.](https://ohmyposh.dev/docs/themes) 
+
 ```
 winget install oh-my-posh
 code $profile
