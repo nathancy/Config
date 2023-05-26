@@ -68,3 +68,12 @@ Fix is
 git config --unset core.filemode
 git config --global core.filemode false
 ```
+
+# Terminal Customization
+```
+winget install oh-my-posh
+code $profile
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\paradox.omp.json" | Invoke-Expression
+Install-Module -Name Terminal-Icons -Repository PSGallery
+Import-Module -Name Terminal-Icons
+```
