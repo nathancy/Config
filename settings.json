@@ -134,5 +134,10 @@
 
     // Disable gitlens extention most recent commit line information
     "gitlens.currentLine.enabled": false,
-    "extensions.ignoreRecommendations": true
+    "extensions.ignoreRecommendations": true,
+    "explorer.confirmDragAndDrop": false,
+
+    // Disable automatic imports
+    "javascript.suggest.autoImports": false,
+    "typescript.suggest.autoImports": false
 }
