@@ -2,6 +2,8 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\paradox.omp.json" | Invoke-
 
 Import-Module -Name Terminal-Icons
 
+Set-PSReadLineOption -PredictionSource None
+
 del alias:gl -Force
 
 function gs {
