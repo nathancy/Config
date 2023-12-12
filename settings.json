@@ -139,5 +139,13 @@
 
     // Disable automatic imports
     "javascript.suggest.autoImports": false,
-    "typescript.suggest.autoImports": false
+    "typescript.suggest.autoImports": false,
+
+    // No confirm delete file
+    "explorer.confirmDelete": false,
+
+    // Format the line after typing
+    "[python]": {
+        "editor.formatOnType": true
+    }
 }

@@ -61,12 +61,16 @@
     "command": "editor.action.moveSelectionToPreviousFindMatch",
     "when": "vim.active && editorFocus && vim.mode == 'Visual' || vim.mode == 'VisualBlock' && !inDebugRepl"
   },
-
   // Select all matches (ctrl + a). This is effectively the same as (ctrl + shift + l)
   {
     "key": "ctrl+a",
     "command": "editor.action.selectHighlights",
     "when": "vim.active && editorFocus && vim.mode == 'Normal' || vim.mode == 'Visual' || vim.mode == 'VisualBlock' && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.active && editorFocus && vim.mode == 'Normal'"
   },
 
   /* Add MULTIPLE CURSORS to ALL PATTERN SELECTIONS
