@@ -39,6 +39,7 @@ GitLens
 vscode-proto3
 autoDocstring
 IntelliCode
+multi-command
 ```
 
 ## VSCode Built-in Terminal/Powershell Alias
